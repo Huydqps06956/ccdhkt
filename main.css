@@ -1,0 +1,190 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Raleway", sans-serif;
+}
+
+body {
+  font-size: 2rem;
+}
+.background:before {
+  content: "";
+  position: fixed;
+  left: -5px;
+  right: -5px;
+  top: -5px;
+  bottom: -5px;
+  z-index: -1;
+
+  display: block;
+  background-image: url("./images/cctn.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  background-attachment: fixed;
+}
+
+.background {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  text-align: center;
+  padding-top: 30px;
+  font-size: 1.5em;
+  color: white;
+  font-weight: 700;
+  text-shadow: 1px 1px #330;
+}
+.logo {
+  display: flex;
+  margin: 50px 100px;
+}
+.logo img {
+  width: 200px;
+}
+
+.find {
+  display: flex;
+  justify-content: center;
+}
+.find__form {
+  align-items: center;
+}
+input,
+span,
+label {
+  font-family: "Raleway", sans-serif;
+  display: block;
+  margin: 10px;
+  padding: 5px;
+  border: none;
+  font-size: 22px;
+}
+
+textarea:focus,
+input:focus {
+  outline: 0;
+}
+/* Question */
+
+input.question {
+  font-size: 48px;
+  font-weight: 300;
+  border-radius: 2px;
+  margin: 0;
+  border: none;
+  width: 80%;
+  background: rgba(0, 0, 0, 0);
+  transition: padding-top 0.2s ease, margin-top 0.2s ease;
+  color: #000;
+  font-family: "Open Sans";
+  text-transform: uppercase;
+  overflow-x: hidden; /* Hack to make "rows" attribute apply in Firefox. */
+}
+/* Underline and Placeholder */
+
+input.question + label {
+  display: block;
+  position: relative;
+  white-space: nowrap;
+  padding: 0;
+  margin: 0;
+  width: 10%;
+  border-top: 1px solid #005596;
+  -webkit-transition: width 0.4s ease;
+  transition: width 0.4s ease;
+  height: 0px;
+}
+
+input.question:focus + label {
+  width: 100%;
+}
+
+input.question:focus,
+input.question:valid {
+  padding-top: 35px;
+}
+
+input.question:focus + label > span,
+input.question:valid + label > span {
+  top: -120px;
+  font-size: 32px;
+  color: #005596;
+}
+
+input.question:valid + label {
+  border-color: #276ea5;
+}
+
+input.question:invalid {
+  box-shadow: none;
+}
+
+input.question + label > span {
+  font-weight: 300;
+  margin: 0;
+  position: absolute;
+  color: #005596;
+  font-size: 62px;
+  top: -80px;
+  left: 0px;
+  z-index: -1;
+  -webkit-transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+  transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+}
+
+input[type="submit"] {
+  -webkit-transition: opacity 0.2s ease, background 0.2s ease;
+  transition: opacity 0.2s ease, background 0.2s ease;
+  display: block;
+  opacity: 0;
+  margin: 10px 0 0 0;
+  padding: 10px;
+  background-color: #fbfafa;
+  cursor: pointer;
+  color: #000;
+  border-width: 4px;
+  border-style: solid;
+  border-image: linear-gradient(to right, #4196d8, #005596) 1;
+  letter-spacing: 1px;
+}
+
+input[type="submit"]:hover {
+  box-shadow: inset 400px 0 0 0 #005596;
+  color: #fff;
+}
+
+input[type="submit"]:active {
+  background: #fff;
+}
+
+input.question:valid ~ input[type="submit"] {
+  -webkit-animation: appear 1s forwards;
+  animation: appear 1s forwards;
+}
+
+input.question:invalid ~ input[type="submit"] {
+  display: none;
+}
+@-webkit-keyframes appear {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes appear {
+  100% {
+    opacity: 1;
+  }
+}
